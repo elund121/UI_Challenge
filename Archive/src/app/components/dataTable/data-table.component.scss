@@ -1,0 +1,75 @@
+@import './../../../scss/colors';
+@import './../../../scss/theme';
+@import './../../../scss/variables';
+
+a {
+    cursor: pointer;
+}
+
+.main-table {
+    margin-top: $navbar-height;
+    margin-bottom: $footer-height;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+
+    .data-table-container {
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+    }
+      
+    .mat-table {
+        overflow: auto;
+        max-height: 500px;
+
+        .mat-header-row {
+            display: none;
+
+            .mat-header-cell {
+                color: #fff;
+            }
+        }
+    }
+
+    table {
+        width: 100%;
+        margin: 0;
+        table-layout: fixed;
+        border-collapse: collapse;
+        border-spacing: 0;
+
+        th {
+            border-bottom: 0px solid #dddddd !important;
+            border: 1px solid #ddd;
+            background-color: $orange-500;
+            height: 32px;
+            // color: #fff;
+            white-space: nowrap;
+        }
+        td {
+            text-align: right;
+            height: 32px;
+        }
+    }
+
+    table th, table td {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    table th:first-child, table td:first-child {
+        text-align: center !important;
+    }   
+}
+
+.green-btn {
+    color: $green-500;
+}
+
+.red-btn {
+    color: $red-500;
+}
+
+.bgc-grey {
+    background-color: $grey-300;
+}

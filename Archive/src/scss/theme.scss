@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$prorize-app-primary: mat-palette($mat-indigo);
+$prorize-app-accent:  mat-palette($mat-orange, A200, A100, A400);
+$prorize-app-warn:    mat-palette($mat-red);
+$prorize-app-theme:   mat-light-theme($prorize-app-primary, $prorize-app-accent, $prorize-app-warn);
+
+$data-table-theme-primary: mat-palette($mat-orange, 600, 700, 800);
+$data-table-theme-accent: mat-palette($mat-green);
+$data-table-theme: mat-light-theme($data-table-theme-primary, $data-table-theme-accent, $prorize-app-warn);
+
+.data-table-theme {
+    @include angular-material-theme($data-table-theme);
+}
+
+@include angular-material-theme($prorize-app-theme);

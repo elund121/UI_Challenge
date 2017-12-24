@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../scss/theme.scss";
+@import "../scss/colors.scss";
+@import "../scss/helpers.scss";
+@import "../scss/variables.scss";
+
+.footer {
+    position: fixed !important;
+    left: 0;
+    padding: 16px !important;
+    bottom: 0;
+    width: 100%;
+    background-color: #E0E0E0;
+    text-align: center;
+}

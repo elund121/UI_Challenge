@@ -1,0 +1,16 @@
+<ul class="sidenav">
+    <li *ngFor="let group of menuGroups">
+        <a (click)="toggleGroup(group)" class="mat-typography" matTooltip="{{group.name}}" [matTooltipPosition]="tooltipPosition">
+            <span>{{group.name}}</span>
+            <span class="fill-space"></span>
+            <mat-icon>{{group.icon}}</mat-icon>
+        </a>
+        <ul *ngIf="group.expanded">
+            <li *ngFor="let item of group.items">
+                <a class="mat-caption">
+                    <span>{{item.name}}</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

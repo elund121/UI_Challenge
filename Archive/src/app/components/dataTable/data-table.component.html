@@ -1,0 +1,68 @@
+<div class="main-table data-table-theme">
+    <div class="container mat-elevation-z4">
+        <table class="table table-bordered table-condensed">
+            <thead class="table-header">
+                <tr>
+                    <th *ngFor="let col of columns" [attr.rowspan]="col.rowspan" [attr.colspan]="col.colspan">
+                        <span class="mat-caption">{{col.name}}</span>
+                    </th>                                 
+                </tr>
+                <tr class="warning-box">
+                    <th *ngFor="let subCol of subColumns">
+                        <span class="mat-caption">{{subCol.name}}</span>
+                    </th>               
+                </tr>
+            </thead>
+            <tbody>            
+                <tr *ngFor="let row of dataSource" [hidden]="row.Collapsed" [ngClass]="{'bgc-grey mat-elevation-z3' : rowIsPricingUnit(row)}">               
+                    <td>
+                        <button mat-icon-button *ngIf="rowIsPricingUnit(row)" (click)="toggleUnitTypeGroup(row.UnitType, false)">
+                            <mat-icon *ngIf="!row.Collapsed">keyboard_arrow_down</mat-icon>
+                            <mat-icon *ngIf="row.Collapsed">keyboard_arrow_right</mat-icon>
+                        </button>
+                    </td>
+                    <td class="text-left"><span class="mat-caption">{{row.UnitType}}</span></td>
+                    <td><span class="mat-caption">{{row.PhysicalUnitCount}}</span></td>
+                    <td><span class="mat-caption">{{row.UnitCount}}</span></td>
+                    <td><span class="mat-caption">{{row.OccupiedCount}}</span></td>
+                    <td><span class="mat-caption">{{row.OccupiedChange}}</span></td>
+                    <td><span class="mat-caption">{{row.OccupiedPercent}}</span></td>
+                    <td><span class="mat-caption">{{row.Exposure}}</span></td>
+                    <td><span class="mat-caption">{{row.ExpChange}}</span></td>
+                    <td><span class="mat-caption">{{row.ExpPct}}</span></td>
+                    <td><span class="mat-caption">${{row.OccupiedRent | number:'1.0-0'}}</span></td>
+                    <td><span class="mat-caption">${{row.CurrRent | number:'1.0-0'}}</span></td>
+                    <td id="recColumn" class="text-center">
+                        <span class="mat-caption">
+                            ${{row.RecRent | number:'1.0-0'}}
+                        </span>
+                        <div *ngIf="!rowIsPricingUnit(row)">
+                            <button mat-icon-button color="accent" 
+                                [disabled]="row.Override.Value === undefined">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button mat-icon-button color="warn" 
+                                [disabled]="row.CurrentRentOverride" 
+                                (click)="overrideWithCurrentRent(row)" 
+                                matTooltip="Creates a new override with default values" 
+                                matTooltipPosition="right">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </div>            
+                    </td>
+                    <td>
+                        <a class="mat-caption" (click)="openOverrideDialog(row)">
+                            $ {{row.Override.DisplayValue | number:'1.0-0' || 'N/A'}}
+                        </a>
+                    </td>
+                    <td><span class="mat-caption">{{row.RentChange}}</span></td>
+                    <td><span class="mat-caption">{{row.RentChangePct}}</span></td>
+                </tr>              
+            </tbody>
+        </table>
+    </div>
+    <app-data-table-index 
+        [indexList]="dataTableIndecies" 
+        (indexListUpdated)="toggleUnitTypeGroupFromIndex($event)">
+    </app-data-table-index>
+</div>

@@ -1,0 +1,62 @@
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+
+@mixin list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+@mixin si-list-item {
+    display: block;
+    padding: 1em;
+    outline: 0;
+    box-shadow: inset 0 -1px rgba(0,0,0,.2);
+    color: #f3efe0;
+    text-transform: uppercase;
+    text-shadow: 0 0 1px rgba(255,255,255,.1);
+    // letter-spacing: 1px;
+    // font-weight: 400;
+    -webkit-transition: background .3s,box-shadow .3s;
+    transition: background .3s,box-shadow .3s;
+    cursor: pointer;
+}
+
+.sidenav {
+    @include list;
+
+    li {
+        a {
+            @include si-list-item();
+
+            .mat-icon {
+                float: left;
+                margin-right: 16px;
+            }
+        }
+        a:hover {
+            background-color: $blue-grey-700;
+            cursor: pointer;
+        }
+        ul {
+            @include list;
+  
+            li {          
+                box-shadow: none;
+                background-color: $blue-grey-600;
+                a {
+                    padding: 5px 0 5px 2em;
+                    text-transform: none;
+                    box-shadow: none;
+                }
+                a:hover {
+                    background-color: $blue-grey-700;
+                    cursor: pointer;
+                }
+                a:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

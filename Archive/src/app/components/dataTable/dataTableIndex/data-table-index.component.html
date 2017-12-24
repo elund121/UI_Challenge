@@ -1,0 +1,29 @@
+<div class="data-table-index ml">
+    <button mat-raised-button color="primary" class="save-btn" (click)="save()">
+        Save
+    </button>    
+    <mat-button-toggle-group #group="matButtonToggleGroup"
+        [(ngModel)]="toggleValue" 
+        (change)="showOrHideAll(toggleValue)">
+        <mat-button-toggle color="primary" value="1">
+            Hide
+        </mat-button-toggle>
+        <mat-button-toggle value="2">
+            Show
+        </mat-button-toggle>
+    </mat-button-toggle-group>
+    
+    <div class="unit-type-list-container"> 
+        <div class="unit-type-list">
+            <span class="mat-caption"><b>Unit types</b></span>
+            <ul>
+                <li *ngFor="let ut of indexList" class="mat-caption" [ngClass]="{'is-closed' : ut.Collapsed}"
+                    (click)="toggleUnitTypeGroup(ut)">
+                    <mat-icon *ngIf="ut.Collapsed">keyboard_arrow_right</mat-icon>
+                    <mat-icon *ngIf="!ut.Collapsed">keyboard_arrow_down</mat-icon>
+                    {{ut.Name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

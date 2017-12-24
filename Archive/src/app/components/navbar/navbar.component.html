@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="navbar mat-elevation-z6">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img src="assets/images/logo.png">
+    <span class="fill-space"></span>
+    <button mat-button [matMenuTriggerFor]="menu">
+        Eric Lund
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            Account Settings
+        </button>
+        <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            Logout
+        </button>
+    </mat-menu>
+</mat-toolbar>

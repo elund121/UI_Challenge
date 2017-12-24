@@ -1,0 +1,72 @@
+.text-left {
+    text-align: left !important;
+}
+.text-right {
+    text-align: right !important;
+}
+.text-center {
+    text-align: center !important;
+}
+.full-width {
+    width: 100% !important;
+}
+.fill-space {
+    flex: 1 1 auto;
+}
+
+
+// Padding helpers
+.p0 {
+    padding: 0 !important;;
+}
+.pt0 {
+    padding-top: 0 !important;;
+}
+.pr0 {
+    padding-right: 0 !important;;
+}
+.pl0 {
+    padding-left: 0 !important;;
+}
+.pb0 {
+    padding-bottom: 0 !important;;
+}
+.p {
+    padding: 8px !important;;
+}
+.p\+ {
+    padding: 16px !important;;
+}
+.pv {
+    padding-top: 8px !important;;
+    padding-bottom: 8px !important;;
+}
+.pv\+ {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+.ph {
+    padding-left: 8px !important;;
+    padding-right: 8px !important;;
+}
+.ph\+ {
+    padding-left: 16px !important;;
+    padding-right: 16px !important;;
+}
+
+// Margin helpers
+.m0 {
+    padding: 0 !important;;
+}
+.mt0 {
+    margin-top: 0 !important;;
+}
+.mr0 {
+    padding-right: 0 !important;;
+}
+.ml0 {
+    padding-left: 0 !important;;
+}
+.mb0 {
+    padding-bottom: 0 !important;;
+}

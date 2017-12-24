@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Override Details</h2>
+<mat-dialog-content> 
+    <div class="mat-caption">Current Rent:
+        <b>${{overrideDetail.CurrRent}}</b>
+    </div>
+    
+    <div class="mat-caption">Rec Rent:
+        <b>${{overrideDetail.RecRent}}</b>
+    </div>
+    
+    <div class="mat-caption">Average Amenity: </div>
+    
+    <mat-list>
+        <mat-divider></mat-divider>
+    </mat-list>
+    
+    <div class="pv+">
+        <mat-form-field class="full-width">
+            <mat-select placeholder="Override Type" [(value)]="overrideDetail.OverrideType">
+                <mat-option *ngFor="let ot of overrideTypes" [value]="ot.value">
+                    {{ ot.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <span matPrefix>$ &nbsp;</span>
+            <input matInput type="number" placeholder="Value" [(ngModel)]="overrideDetail.Value">
+            <mat-error *ngIf="!valueIsNumber(overrideDetail.Value)">
+                Invalid Number
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <input matInput [matDatepicker]="picker" placeholder="Expiration Date" [(ngModel)]="overrideDetail.Expiration">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+
+            <mat-error *ngIf="!valueIsDate(overrideDetail.Expiration)">Must be a valid date</mat-error>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button color="primary" [mat-dialog-close]="true" [disabled]="validateOverride(overrideDetail)">Save</button>
+</mat-dialog-actions>
